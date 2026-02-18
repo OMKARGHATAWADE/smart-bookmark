@@ -123,3 +123,30 @@ Google OAuth redirect URLs configured for both:
 Localhost
 
 Production domain
+
+🧠 Challenges & Learnings
+1. Google OAuth redirect issues in production
+
+Problem:
+Login worked locally but failed after deployment.
+
+Solution:
+Updated both:
+
+Google Cloud OAuth redirect URIs
+
+Supabase Auth → URL Configuration
+to include the Vercel production URL.
+
+2. Realtime updates not syncing across tabs
+
+Problem:
+Bookmarks added in one tab didn’t appear in another until refresh.
+
+Solution:
+Enabled the bookmarks table in:
+
+Supabase → Database → Publications → supabase_realtime
+
+
+This allowed Supabase Realtime to broadcast changes instantly.
